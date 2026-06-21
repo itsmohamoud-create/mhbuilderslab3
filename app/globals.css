@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg:            #0A0A0F;
+    --bg2:           #0f0f18;
+    --bg3:           #13131f;
+    --glass:         rgba(255,255,255,0.04);
+    --glass-border:  rgba(255,255,255,0.08);
+    --glass-hover:   rgba(255,255,255,0.07);
+    --text:          #f0eff8;
+    --text-muted:    rgba(240,239,248,0.55);
+    --text-faint:    rgba(240,239,248,0.30);
+    --violet:        #7C3AED;
+    --violet-light:  #a78bfa;
+    --cyan:          #06B6D4;
+    --cyan-light:    #67e8f9;
+    --blue:          #3B82F6;
+    --emerald:       #10B981;
+    --amber:         #F59E0B;
+    --rose:          #F43F5E;
+    --grad-text:     linear-gradient(135deg, #a78bfa 0%, #67e8f9 50%, #93c5fd 100%);
+    --grad-btn:      linear-gradient(135deg, #7C3AED, #06B6D4);
+  }
+}
+
+@theme {
+  --color-bg-base: var(--bg);
+  --color-bg2: var(--bg2);
+  --color-bg3: var(--bg3);
+  --color-text-base: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-violet: var(--violet);
+  --color-violet-light: var(--violet-light);
+  --color-cyan: var(--cyan);
+  --color-cyan-light: var(--cyan-light);
+  --color-blue: var(--blue);
+  --color-emerald: var(--emerald);
+  --color-amber: var(--amber);
+  --color-rose: var(--rose);
+  --font-syne: var(--font-syne), sans-serif;
+  --font-dm: var(--font-dm-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-dm-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-row {
+  animation: ticker 35s linear infinite;
+}
+
+.ticker-row-reverse {
+  animation: ticker 40s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-row,
+  .ticker-row-reverse {
+    animation: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
